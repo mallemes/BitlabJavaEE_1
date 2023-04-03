@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class HomeServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html; charset=UTF-8");
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         String deadline = request.getParameter("deadline");
@@ -23,6 +24,7 @@ public class HomeServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html; charset=UTF-8");
         ArrayList<Task> tasks = DBManager.getTasks();
         request.setAttribute("tasks", tasks);
         request.getRequestDispatcher("/home.jsp").forward(request, response);
